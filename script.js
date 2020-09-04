@@ -8,14 +8,18 @@ var generateBtn = document.querySelector("#generate");
 function generatePassword(){
   var passwordLengthPrompt = prompt("Please enter desire password length. Lenght must be between 12 and 128");
   //var passwordLength = parseInt(passwordLengthPrompt);
-  if( typeof passwordLengthPrompt !== 'number' || passwordLengthPrompt < 12 || passwordLengthPrompt < 128 ){
+  if( typeof parseInt(passwordLengthPrompt, 10) !== 'number' || isNaN(passwordLengthPrompt) || passwordLengthPrompt < 12 || passwordLengthPrompt > 128 ){
     alert("Please enter valid password length");
     return "";
   }
-  var isLowerCase = alert();
-  var isUpperCase = alert();
-  var isNumber = alert();
-  var isSpecialChar = alert();
+ var isLowerCase = confirm("Do you want to include lower case letters?");
+ console.log(isLowerCase);
+  var isUpperCase = confirm("Do you want to include upper case letters?");
+  console.log(isUpperCase);
+  var isNumber = confirm("Do you want to include numbers?");
+  console.log(isUpperCase);
+  var isSpecialChar = confirm("Do you want to include special characters?");
+  console.log(isUpperCase);
 }
 
 
