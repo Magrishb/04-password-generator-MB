@@ -2,8 +2,14 @@
 var generateBtn = document.querySelector("#generate");
 //Steps:
 /**
- * 1. Ask for password length from 12 to 128 char
+ * 1. Prompt for password length from 12 to 128 char
  * 2. Validate the input
+ * 3. Confirm if lower case needs to be included
+ * 4. Confirm if upper case needs to be included
+ * 5. Confirm if number needs to be included
+ * 6. Confirm if special character needs to be included
+ * 7. Validate at least one criteria is selected
+ * 8. Generate password for choosen criteria and length.
  * */
 function generatePassword(){
   var passwordLengthPrompt = prompt("Please enter desire password length. Lenght must be between 12 and 128");
@@ -30,12 +36,12 @@ function generatePassword(){
   var numberArr = ["0","1","2","3","4","5","6","7","8","9"];
   var specialCharArr = ["`","~","!","@","#","$","%","^","&","*","(",")","-","_","+","=","{","}","[","]","|",":",";","<",">","?"];
   
-  var randomPassword = "";
-
-  //Generate a random number and use that to get random element from each array based on selected criteria
- // var firstRandom = Math.random();
-
+ 
+//Define initial value for random password and chooseCharArray varible.
+ var randomPassword = "";
  var choosenCharArray = [];
+
+ //Add one character for selected type to ensure choose criteria is met.
   if(isLowerCase){
     randomPassword = randomPassword.concat(lowerCaseArr[Math.floor(Math.random() * lowerCaseArr.length)]);
     choosenCharArray = choosenCharArray.concat(lowerCaseArr);
@@ -53,6 +59,7 @@ function generatePassword(){
     choosenCharArray = choosenCharArray.concat(specialCharArr);
   }
 
+  //Based on choosen criteria generate password for remaining length
   for (var i=randomPassword.length; i<passwordLengthPrompt; i++){
     randomPassword = randomPassword.concat(
       choosenCharArray[Math.floor(Math.random() * choosenCharArray.length)]);
