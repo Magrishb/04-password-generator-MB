@@ -5,11 +5,19 @@ var generateBtn = document.querySelector("#generate");
  * 1. Ask for password length from 12 to 128 char
  * 2. Validate the input
  * */
-var passwordLength = alert();
-var isLowerCase = alert();
-var isUpperCase = alert();
-var isNumber = alert();
-var isSpecialChar = alert();
+function generatePassword(){
+  var passwordLengthPrompt = prompt("Please enter desire password length. Lenght must be between 12 and 128");
+  //var passwordLength = parseInt(passwordLengthPrompt);
+  if( typeof passwordLengthPrompt !== 'number' || passwordLengthPrompt < 12 || passwordLengthPrompt < 128 ){
+    alert("Please enter valid password length");
+    return "";
+  }
+  var isLowerCase = alert();
+  var isUpperCase = alert();
+  var isNumber = alert();
+  var isSpecialChar = alert();
+}
+
 
 // Write password to the #password input
 function writePassword() {
@@ -19,8 +27,6 @@ function writePassword() {
   passwordText.value = password;
 
 }
- function generatePassword(){
-
- }
+ 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
