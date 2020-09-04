@@ -35,7 +35,7 @@ function generatePassword(){
   //Generate a random number and use that to get random element from each array based on selected criteria
  // var firstRandom = Math.random();
 
- var choosenCharArray = "";
+ var choosenCharArray = [];
   if(isLowerCase){
     randomPassword = randomPassword.concat(lowerCaseArr[Math.floor(Math.random() * lowerCaseArr.length)]);
     choosenCharArray = choosenCharArray.concat(lowerCaseArr);
@@ -55,10 +55,10 @@ function generatePassword(){
 
   for (var i=randomPassword.length; i<passwordLengthPrompt; i++){
     randomPassword = randomPassword.concat(
-      specialCharArr[Math.floor(Math.random() * specialCharArr.length)]);
+      choosenCharArray[Math.floor(Math.random() * choosenCharArray.length)]);
     
   }
-
+  return  randomPassword;
 }
 
 
