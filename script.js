@@ -29,6 +29,36 @@ function generatePassword(){
   var upperCaseArr =  ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
   var numberArr = ["0","1","2","3","4","5","6","7","8","9"];
   var specialCharArr = ["`","~","!","@","#","$","%","^","&","*","(",")","-","_","+","=","{","}","[","]","|",":",";","<",">","?"];
+  
+  var randomPassword = "";
+
+  //Generate a random number and use that to get random element from each array based on selected criteria
+ // var firstRandom = Math.random();
+
+ var choosenCharArray = "";
+  if(isLowerCase){
+    randomPassword = randomPassword.concat(lowerCaseArr[Math.floor(Math.random() * lowerCaseArr.length)]);
+    choosenCharArray = choosenCharArray.concat(lowerCaseArr);
+  }
+  if(isUpperCase){
+    randomPassword = randomPassword.concat(upperCaseArr[Math.floor(Math.random() * upperCaseArr.length)]);
+    choosenCharArray = choosenCharArray.concat(upperCaseArr);
+  }
+  if(isNumber){
+    randomPassword = randomPassword.concat(numberArr[Math.floor(Math.random() * numberArr.length)]);
+    choosenCharArray = choosenCharArray.concat(numberArr);
+  }
+  if(isSpecialChar){
+    randomPassword = randomPassword.concat(specialCharArr[Math.floor(Math.random() * specialCharArr.length)]);
+    choosenCharArray = choosenCharArray.concat(specialCharArr);
+  }
+
+  for (var i=randomPassword.length; i<passwordLengthPrompt; i++){
+    randomPassword = randomPassword.concat(
+      specialCharArr[Math.floor(Math.random() * specialCharArr.length)]);
+    
+  }
+
 }
 
 
