@@ -17,9 +17,18 @@ function generatePassword(){
   var isUpperCase = confirm("Do you want to include upper case letters?");
   console.log(isUpperCase);
   var isNumber = confirm("Do you want to include numbers?");
-  console.log(isUpperCase);
+  console.log(isNumber);
   var isSpecialChar = confirm("Do you want to include special characters?");
-  console.log(isUpperCase);
+  console.log(isSpecialChar);
+  if(!isLowerCase && !isUpperCase && !isNumber && !isSpecialChar) {
+      alert("Please select at least one valid password type");
+      return "";
+  }
+
+  var lowerCaseArr = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  var upperCaseArr =  ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+  var numberArr = ["0","1","2","3","4","5","6","7","8","9"];
+  var specialCharArr = ["`","~","!","@","#","$","%","^","&","*","(",")","-","_","+","=","{","}","[","]","|",":",";","<",">","?"];
 }
 
 
